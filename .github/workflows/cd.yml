@@ -1,0 +1,23 @@
+name: CD
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - if: github.event_name == 'push' && contains(github.ref, 'main')
+        run: echo "VERCEL_ARGS=--prod" >> $GITHUB_ENV
+      - uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ secrets.GH_TOKEN }}
+          vercel-args: ${{ env.VERCEL_ARGS }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          scope: ${{ env.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-project-name: "chatbot"
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+          NEXT_PUBLIC_WC_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_WC_PROJECT_ID }}
