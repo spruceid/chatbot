@@ -291,7 +291,7 @@ export const ChatInput = ({
                     >
                       <IconRepeat size={16} /> {t('Regenerate response')}
                     </button>
-                    {/* <Attestation /> */}
+                    <Attestation />
                   </div>
                 </>
               )}

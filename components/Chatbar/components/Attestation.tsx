@@ -2,7 +2,7 @@ import { IconCertificate } from '@tabler/icons-react';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-// import { issue } from '@/utils/app/rebase';
+import { issue } from '@/utils/app/rebase';
 
 import HomeContext from '@/pages/api/home/home.context';
 
@@ -48,8 +48,7 @@ export const Attestation = () => {
     const body = conversationToAttestationText(selectedConversation);
     const content = { body, title: selectedConversation.name };
 
-    // let jwt = await issue(content, address || '', sign);
-    const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+    let jwt = await issue(content, address || '', sign);
     setCredential(jwt);
     setModalState(ModalState.AttestDownload);
   };
