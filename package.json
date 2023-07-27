@@ -15,7 +15,7 @@
     "@dqbd/tiktoken": "^1.0.2",
     "@rainbow-me/rainbowkit": "^1.0.2",
     "@spruceid/rebase-client": "^0.16.1",
-    "@spruceid/ssx": "2.0.0",
+    "@spruceid/ssx": "2.0.1",
     "@tabler/icons-react": "^2.9.0",
     "ethers": "^5.6.8",
     "eventsource-parser": "^0.1.0",
